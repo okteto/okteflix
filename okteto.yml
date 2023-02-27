@@ -81,3 +81,16 @@ dev:
       - worker:/usr/src/app
     forward:
       - 2345:2345
+external:
+  lambda:
+    icon: function
+    notes: docs/lambda.md
+    endpoints:
+    - name: function
+      url: https://us-east-1.console.aws.amazon.com/lambda/home?region=us-east-1#/functions
+  atlas:
+    icon: database
+    notes: docs/atlas.md
+    endpoints:
+    - name: dashboard
+      url: https://cloud.mongodb.com/v2/623d0c65c937984f4e235a41#/clusters
