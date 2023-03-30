@@ -85,4 +85,4 @@ destroy:
   image: busybox
   commands:
   - name: destroycommand
-    command: echo destroyed succesfully
+    command: echo destroyed succesfully!
