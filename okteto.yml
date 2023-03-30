@@ -40,7 +40,7 @@ build:
 #     command: helm upgrade --install api api/chart --set image=${OKTETO_BUILD_API_IMAGE} --set load=${API_LOAD_DATA:-true}
 
 deploy:
-  image: okteto/pipeline-runner:1.0.0-sam
+  image: busybox
   commands:
   - name: first command
     command: echo hola
