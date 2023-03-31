@@ -1,0 +1,20 @@
+build:
+  launchdarkly:
+    context: client
+deploy:
+  image: ${OKTETO_BUILD_LAUNCHDARKLY_IMAGE}
+  commands:
+  - name: create LaunchDarkly environment
+    command: echo hola
+destroy:
+  image: ${OKTETO_BUILD_LAUNCHDARKLY_IMAGE}
+  commands:
+  - name: delete LaunchDarkly environment
+    command: |
+       /usr/local/bin/launchdarkly delete --project $LAUNCHDARKLY_PROJECT_KEY --name $OKTETO_NAMESPACE --token $LAUNCHDARKLY_ACCESS_TOKEN
+external:
+  LaunchDarkly:
+    icon: dashboard
+    notes: notes.md
+    endpoints:
+      - name: environment
