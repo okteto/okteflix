@@ -94,3 +94,9 @@ external:
     endpoints:
     - name: dashboard
       url: https://cloud.mongodb.com/v2/623d0c65c937984f4e235a41#/clusters
+  
+destroy:
+  image: ${OKTETO_BUILD_API_DEV_IMAGE}
+  commands:
+  - name: fake destroy
+    command: echo destroyed

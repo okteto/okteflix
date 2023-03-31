@@ -1,0 +1,15 @@
+apiVersion: "dev.okteto.com/v1"
+kind: External
+metadata:
+  name: 10004672-9eaa-404f-a701-3ed0e08b275b
+  labels:
+    dev.okteto.com/deployed-by: go-getting-started
+spec:
+  name: "test-3"
+  icon: database
+  notes:
+    path: noseque.md
+    markdown: aG9sYSBjb21vIGVzdGFzIG1pIG5vbWJyZSBlcyBqdWxpYW4=
+  endpoints:
+    - name: api
+      url: localhost:8080
