@@ -1,6 +1,8 @@
 icon: https://apps.okteto.com/movies/icon.png
 
 deploy:
+  image: alpine
+  commands:
   - name: error command
     command: nonexisting command
 dev:
