@@ -1,0 +1,29 @@
+name: "My Abuelo "
+on: 
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  devflow:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Context
+      uses: okteto/context@latest
+      with:
+        token: ${{ secrets.OKTETO_TOKEN }}
+        url: ${{ secrets.OKTETO_URL }}
+    - name: checkout
+      uses: actions/checkout@master
+    - name: Save Git values
+      run: |
+          echo "COMMIT_INFO_MESSAGE=\"$(git show -s --format='%h %s')\"" >> $GITHUB_ENV
+      shell: bash
+    - name: "Run tests"
+      uses: okteto/test@jlo/fix-fithub-multiline-envvars
+      with:
+        tests: "worker"
+        variables: USER="im the admin",PASS="admin",COMMIT_INFO_MESSAGE="${{ env.COMMIT_INFO_MESSAGE }}"
+        log-level: "debug"
+      env:
+        OKTETO_CA_CERT: ${{ secrets.OKTETO_CA_CERT }}
